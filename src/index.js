@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import store from './store';
-import axios from 'axios';
+import { loadAlbums } from './store';
 
 
 // contains componentDidMount(), and renders a basic header, and then all subsequent components 
@@ -20,29 +20,29 @@ const Main = connect(
     }
 )
 (class Main extends React.Component {
-constructor (){
-    super();
-    this.state = {
-        albums: []
-    }
-}
-async componentDidMount(){
- const response = await axios.get('/api/albums')
- const albums = response.data;
- this.setState({albums});
+// constructor (){
+//     super();
+//     this.state = {
+//         albums: []
+//     }
+// }
+componentDidMount(){
+//  const response = await axios.get('/api/albums')
+//  const albums = response.data;
+//  this.setState({albums});
+ this.props.bootstrap();
 }
     render() {
         return (
             <div id='main'>
                 <h1> Albums Released in 1989 </h1>
-                {/* <Header />
-                <CreateAlbum />
-                <AllAlbums /> */}
             </div>
         )
     }
 });
 
 render(
+<Provider store={ store }> 
 <Main />
+</Provider>
 , document.querySelector('#root'));

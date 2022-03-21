@@ -1,7 +1,7 @@
 import React from 'react';
 import thunks from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-
+import axios from 'axios';
 
 // create action types
 
@@ -40,15 +40,22 @@ const loadAlbums = () => {
 };
 
 const createAlbum = () => {
-    
+    return async function(dispatch) {
+        const album = (await axios.post('/api/albums', {newAlbum})).data
+        dispatch({type: CREATE_ALBUM, album});
+    }
 };
 
-const deleteAlbum = () => {
-    
+const deleteAlbum = async(album) => {
+     await axios.delete(`/api/albums/${album.id}`);
+     store.dispatch({type: DELETE_ALBUM, album});
 };
 
-const updateAlbum = () => {
-    
+const updateAlbum = (album) => {
+    return async function(dispatch){
+        const updated = (await axios.put(`/api/albums/${album.id}`, { listened: !album.listened })).data;
+        dispatch({type: UPDATE_ALBUM, album: updated})
+    }
 };
 
 // create store
@@ -59,4 +66,7 @@ const store = createStore(reducer, applyMiddleware(thunks));
 export default store;
 export {
     loadAlbums,
+    createAlbum,
+    deleteAlbum,
+    updateAlbum
 }
