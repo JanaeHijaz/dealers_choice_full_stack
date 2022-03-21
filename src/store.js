@@ -48,7 +48,8 @@ const createAlbum = () => {
 
 const deleteAlbum = async(album) => {
      await axios.delete(`/api/albums/${album.id}`);
-     store.dispatch({type: DELETE_ALBUM, album});
+     store.dispatch({type: DELETE_ALBUM, album}); 
+     // get "ReferenceError: dispatch is not defined" when i dont have store on line 51
 };
 
 const updateAlbum = (album) => {

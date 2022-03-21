@@ -33,7 +33,7 @@ app.get('/api/albums/:id', async(req, res, next) => {
 
 // DELETE API Route to delete an album
 
-app.get('/api/albums/:id', async(req, res, next) => {
+app.delete('/api/albums/:id', async(req, res, next) => {
     try {
         const album = await Album.findByPk(req.params.id);
         await album.destroy();

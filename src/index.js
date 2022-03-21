@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { connect, Provider } from 'react-redux';
 import store from './store';
 import { loadAlbums } from './store';
+import AllAlbums from './AllAlbums'
 
 
 // contains componentDidMount(), and renders a basic header, and then all subsequent components 
@@ -20,14 +21,14 @@ const Main = connect(
     }
 )
 (class Main extends React.Component {
-// constructor (){
+// constructor (){ // --------- don't need this with a redux store! 
 //     super();
 //     this.state = {
 //         albums: []
 //     }
 // }
 componentDidMount(){
-//  const response = await axios.get('/api/albums')
+//  const response = await axios.get('/api/albums') // -----no axios calls here!
 //  const albums = response.data;
 //  this.setState({albums});
  this.props.bootstrap();
@@ -36,6 +37,7 @@ componentDidMount(){
         return (
             <div id='main'>
                 <h1> Albums Released in 1989 </h1>
+                <AllAlbums />
             </div>
         )
     }
