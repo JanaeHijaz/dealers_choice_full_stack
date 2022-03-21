@@ -1,10 +1,25 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { connect } from 'react-redux';
+import store from './store';
 import axios from 'axios';
+
 
 // contains componentDidMount(), and renders a basic header, and then all subsequent components 
 
-class Main extends React.Component {
+const Main = connect(
+    (state) => {
+        return {albums: state}
+    },
+    (dispatch) => {
+        return {
+            bootstrap: async() => {
+                dispatch(loadAlbums());
+            },
+        };
+    }
+)
+(class Main extends React.Component {
 constructor (){
     super();
     this.state = {
@@ -26,7 +41,7 @@ async componentDidMount(){
             </div>
         )
     }
-}
+});
 
 render(
 <Main />

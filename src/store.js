@@ -1,6 +1,7 @@
 import React from 'react';
-import thunks from 'redux-thunks';
+import thunks from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+
 
 // create action types
 
@@ -32,7 +33,10 @@ const reducer = combineReducers({albums: albumsReducer});
 // thunks here
 
 const loadAlbums = () => {
-
+    return async function(dispatch) {
+        const albums = (await axios.get('/api/albums')).data;
+        dispatch({type: LOAD_ALBUMS, albums});
+    }
 };
 
 const createAlbum = () => {
@@ -53,3 +57,6 @@ const store = createStore(reducer, applyMiddleware(thunks));
 
 
 export default store;
+export {
+    loadAlbums,
+}
