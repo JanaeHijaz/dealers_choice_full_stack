@@ -20,7 +20,6 @@ app.get('/api/albums', async(req, res, next) => {
 });
 
 // GET API Route to view individual albums
-
 app.get('/api/albums/:id', async(req, res, next) => {
     try{
         const album = await Album.findByPk(req.params.id);
@@ -32,7 +31,6 @@ app.get('/api/albums/:id', async(req, res, next) => {
 });
 
 // DELETE API Route to delete an album
-
 app.delete('/api/albums/:id', async(req, res, next) => {
     try {
         const album = await Album.findByPk(req.params.id);
@@ -45,7 +43,6 @@ app.delete('/api/albums/:id', async(req, res, next) => {
 });
 
 // PUT API Route to toggle/modify an album (if listened to)
-
 app.put('/api/albums/:id', async(req, res, next) => {
     try{
         const album = await Album.findByPk(req.params.id);
@@ -60,7 +57,7 @@ app.put('/api/albums/:id', async(req, res, next) => {
 // POST API Route to add/create a new album in the form 
 app.post('/api/albums', async (req, res, next) => {
     try {
-        res.send(await Album.create(req.body)) // may need to modify this! {albumName: req.body.name} or something
+        res.send(await Album.create({albumName: req.body.newAlbum})) // may need to modify this! {albumName: req.body.name} or something
     }
     catch(error){
         next(error)

@@ -4,6 +4,7 @@ import { connect, Provider } from 'react-redux';
 import store from './store';
 import { loadAlbums } from './store';
 import AllAlbums from './AllAlbums'
+import CreateAlbum from './CreateAlbum';
 
 
 // contains componentDidMount(), and renders a basic header, and then all subsequent components 
@@ -37,7 +38,9 @@ componentDidMount(){
         return (
             <div id='main'>
                 <h1> Albums Released in 1989 </h1>
+                <CreateAlbum />
                 <AllAlbums />
+                
             </div>
         )
     }

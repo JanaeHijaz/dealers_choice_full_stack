@@ -39,7 +39,7 @@ const loadAlbums = () => {
     }
 };
 
-const createAlbum = () => {
+const createAlbum = (newAlbum) => {
     return async function(dispatch) {
         const album = (await axios.post('/api/albums', {newAlbum})).data
         dispatch({type: CREATE_ALBUM, album});
