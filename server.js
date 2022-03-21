@@ -5,6 +5,8 @@ const path = require('path');
 
 app.use('/dist', express.static(path.join(__dirname, 'dist')));
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // GET API Route to view all albums
 app.get('/api/albums', async(req, res, next) => {
