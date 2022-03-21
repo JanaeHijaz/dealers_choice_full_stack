@@ -5,6 +5,7 @@ import store from './store';
 import { loadAlbums } from './store';
 import AllAlbums from './AllAlbums'
 import CreateAlbum from './CreateAlbum';
+import Header from './Header';
 
 
 // contains componentDidMount(), and renders a basic header, and then all subsequent components 
@@ -37,7 +38,8 @@ componentDidMount(){
     render() {
         return (
             <div id='main'>
-                <h1> Albums Released in 1989 </h1>
+                <h1> Music Released in 1989</h1>
+                <Header />
                 <CreateAlbum />
                 <AllAlbums />
                 
