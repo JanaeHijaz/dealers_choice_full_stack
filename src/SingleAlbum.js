@@ -13,11 +13,12 @@ const SingleAlbum = ({ albums, match }) => {
         <div> 
             { albums.filter(album => album.id === match.params.id*1 ).map( album => {
                 return (
-                    <div key={ album.id }>
-                        <p> Album Name: {album.albumName}</p>
-                        <p> Month Released: {album.monthReleased}</p>
-                        <p> Genre: {album.genre}</p>
-                        <p> Artist Name: {album.artistName}</p>
+                    <div id='singleAlbum' key={ album.id }>
+                        <div><img src={album.artworkUrl}/></div>
+                        <div> "{album.albumName}"</div>
+                        <div> Artist: {album.artistName}</div>
+                        <div> Release Date: {album.monthReleased}</div>
+                        <div> Genre: {album.genre}</div>
                         <Link to='/albums'> Back </Link>
                     </div>
                 )
