@@ -2,10 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-
 // contains all details for an individual component that is clicked on, and a back button
-// mapStateToProps only to receive data from the store, not dispatching any action objects or using thunks. 
-
 
 const SingleAlbum = ({ albums, match }) => {
 

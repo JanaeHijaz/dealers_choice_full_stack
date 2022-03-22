@@ -9,7 +9,6 @@ import CreateAlbum from './CreateAlbum';
 import Header from './Header';
 import SingleAlbum from './SingleAlbum';
 
-
 // contains componentDidMount(), and renders a basic header, and then all subsequent components 
 
 const Main = connect(
