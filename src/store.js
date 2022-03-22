@@ -13,7 +13,6 @@ const UPDATE_ALBUM = 'UPDATE_ALBUM';
 // create combineReducer 
 
 const albumsReducer = (albums = [], action) => {
-    console.log(action); // USE THIS!!!
     if (action.type === LOAD_ALBUMS) {
         return action.albums; 
     }
