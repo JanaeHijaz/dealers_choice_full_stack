@@ -25,18 +25,11 @@ const Main = connect(
     }
 )
 (class Main extends React.Component {
-// constructor (){ // --------- don't need this with a redux store! 
-//     super();
-//     this.state = {
-//         albums: []
-//     }
-// }
+
 componentDidMount(){
-//  const response = await axios.get('/api/albums') // -----no axios calls here!
-//  const albums = response.data;
-//  this.setState({albums});
  this.props.bootstrap();
 }
+
     render() {
         return (
             <div id='main'>
@@ -50,7 +43,6 @@ componentDidMount(){
     }
 });
 
-// could use this syntax instead: const Main = connect(state => state)
 
 render(
 <Provider store={ store }> 

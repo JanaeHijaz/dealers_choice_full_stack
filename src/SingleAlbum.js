@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 
-// contains all details (plus image?) for an individual component that is clicked on, and a back button
+// contains all details for an individual component that is clicked on, and a back button
 // mapStateToProps only to receive data from the store, not dispatching any action objects or using thunks. 
-// export it to AllAlbums.js component
+
 
 const SingleAlbum = ({ albums, match }) => {
 
@@ -23,11 +23,6 @@ const SingleAlbum = ({ albums, match }) => {
                 )
             })}
         </div>
-    //  <div id='single-album'>
-    //      <div id='album-info'>
-    //         <p> FULL ALBUM DATA HERE TO BE UPDATED </p>
-    //      </div>
-    //  </div>
     )
 }
 

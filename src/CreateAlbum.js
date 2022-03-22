@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createAlbum } from './store';
 
-// contains form for creating new album // adding it to the store. This component has its own local state!
+// contains form for creating new album // adding it to the store. This component has its own local state
 
 class CreateAlbum extends Component {
     constructor() {

@@ -4,7 +4,7 @@ import { deleteAlbum } from './store';
 import { updateAlbum } from './store';
 import { Link } from 'react-router-dom';
 
-// contains full list of albums, and delete button for each, and toggle for listened to albums
+// contains full list of albums, and delete button for each, and toggle button for listened to albums
 
 const AllAlbums = ({ albums, update }) => {
 
@@ -13,8 +13,8 @@ const AllAlbums = ({ albums, update }) => {
             <ul>
                 {albums.map(album => {
                     return (
-                    <li> 
-                    <button onClick={ () => update(album)} key={album.id} className={ album.listened ? 'listened': '' }> Listened </button>
+                    <li key={album.id}> 
+                    <button onClick={ () => update(album)} className={ album.listened ? 'listened': '' }> Listened </button>
                     <Link to={`/albums/${album.id}`}> "{album.albumName}" by {album.artistName} </Link>
                         <button onClick={ () => deleteAlbum(album) }> x </button>
                     </li>
