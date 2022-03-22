@@ -1,5 +1,5 @@
 import React from 'react';
-import thunks from 'redux-thunk';
+import thunk from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import axios from 'axios';
 
@@ -13,6 +13,7 @@ const UPDATE_ALBUM = 'UPDATE_ALBUM';
 // create combineReducer 
 
 const albumsReducer = (albums = [], action) => {
+    console.log(action); // USE THIS!!!
     if (action.type === LOAD_ALBUMS) {
         return action.albums; 
     }
@@ -61,7 +62,7 @@ const updateAlbum = (album) => {
 
 // create store
 
-const store = createStore(reducer, applyMiddleware(thunks));
+const store = createStore(reducer, applyMiddleware(thunk));
 
 
 export default store;

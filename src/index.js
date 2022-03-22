@@ -1,11 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { connect, Provider } from 'react-redux';
+import { HashRouter, Route } from 'react-router-dom';
 import store from './store';
 import { loadAlbums } from './store';
 import AllAlbums from './AllAlbums'
 import CreateAlbum from './CreateAlbum';
 import Header from './Header';
+import SingleAlbum from './SingleAlbum';
 
 
 // contains componentDidMount(), and renders a basic header, and then all subsequent components 
@@ -38,18 +40,22 @@ componentDidMount(){
     render() {
         return (
             <div id='main'>
-                <h1> Music Released in 1989</h1>
+                <h1> Childhood Sounds: 1989</h1>
                 <Header />
                 <CreateAlbum />
-                <AllAlbums />
-                
+                <Route exact path='/albums' component={ AllAlbums } />
+                <Route path='/albums/:id' component={ SingleAlbum }/>
             </div>
         )
     }
 });
 
+// could use this syntax instead: const Main = connect(state => state)
+
 render(
 <Provider store={ store }> 
+<HashRouter>
 <Main />
+</HashRouter>
 </Provider>
 , document.querySelector('#root'));
